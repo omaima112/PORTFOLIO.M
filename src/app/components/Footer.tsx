@@ -1,6 +1,9 @@
+import { useTranslation } from 'react-i18next';
 import { Mail, Github, Linkedin } from 'lucide-react';
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="py-8 text-center bg-[#2d0147] text-white">
       <div className="flex justify-center gap-8 mb-2">
@@ -29,8 +32,8 @@ export function Footer() {
           <Linkedin size={28} />
         </a>
       </div>
-      <p className="mt-2 text-sm">© 2026 All rights reserved.</p>
-      <p className="mt-1 text-sm italic">Designed & developed by me.</p>
+      <p className="mt-2 text-sm">{t('footer.copyright')}</p>
+      <p className="mt-1 text-sm italic">{t('footer.designed')}</p>
     </footer>
   );
 }

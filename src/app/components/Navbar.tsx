@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Menu, X, Home, User, FolderKanban, Mail, GraduationCap, Award, Code2 } from 'lucide-react';
+import { LanguageToggle } from './LanguageToggle';
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
 
   // Close menu when route changes
   useEffect(() => {
@@ -25,13 +28,13 @@ export function Navbar() {
 
   // All navigation items for hamburger menu
   const allNavItems = [
-    { name: 'Home', path: '/', icon: Home },
-    { name: 'About', path: '/about', icon: User },
-    { name: 'Education', path: '/education', icon: GraduationCap },
-    { name: 'Skills', path: '/skills', icon: Code2 },
-    { name: 'Achievements', path: '/achievements', icon: Award },
-    { name: 'Projects', path: '/projects', icon: FolderKanban },
-    { name: 'Contact', path: '/contact', icon: Mail },
+    { name: t('nav.home'), path: '/', icon: Home },
+    { name: t('nav.about'), path: '/about', icon: User },
+    { name: t('nav.education'), path: '/education', icon: GraduationCap },
+    { name: t('nav.skills'), path: '/skills', icon: Code2 },
+    { name: t('nav.achievements'), path: '/achievements', icon: Award },
+    { name: t('nav.projects'), path: '/projects', icon: FolderKanban },
+    { name: t('nav.contact'), path: '/contact', icon: Mail },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,17 +45,23 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo/Name */}
           <Link to="/" className="text-xl font-semibold text-accent hover:text-secondary transition-colors">
-            Portfolio
+            {t('nav.portfolio')}
           </Link>
 
-          {/* Hamburger Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 rounded-md text-foreground hover:text-accent hover:bg-primary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Right side controls */}
+          <div className="flex items-center gap-3">
+            {/* Language Toggle */}
+            <LanguageToggle />
+            
+            {/* Hamburger Menu Button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-md text-foreground hover:text-accent hover:bg-primary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -66,7 +75,7 @@ export function Navbar() {
           />
           
           {/* Menu Panel */}
-          <div className="absolute top-16 right-4 z-50 w-56 bg-card border border-border rounded-2xl shadow-xl shadow-black/20 overflow-hidden">
+          <div className="absolute top-16 end-4 z-50 w-56 bg-card border border-border rounded-2xl shadow-xl shadow-black/20 overflow-hidden">
             <nav className="py-2">
               {allNavItems.map((item) => {
                 const Icon = item.icon;

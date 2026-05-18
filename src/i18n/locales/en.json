@@ -1,0 +1,176 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "home": "Home",
+    "about": "About",
+    "education": "Education",
+    "skills": "Skills",
+    "achievements": "Achievements",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "greeting": "Hi, I'm",
+    "name": "Omaimah",
+    "tagline": "Computer Science student building tools for information security and digital trust",
+    "description": "My work is driven by the belief that technology should make the internet safer and more reliable for everyone.",
+    "quote": "\"Imagination is the Discovering Faculty, pre-eminently. It is that which penetrates into the unseen worlds around us, the worlds of Science.\"",
+    "quoteAuthor": "- Ada Lovelace",
+    "viewProjects": "View Projects",
+    "getInTouch": "Get in Touch"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I am a Computer Science student focused on information security and misinformation mitigation through web development. I work on building tools that address gaps in data protection and content verification, two areas that affect how people interact with digital information daily.",
+    "paragraph2": "My interest in this area grew from observing how easily false information spreads and how often people unknowingly compromise their own data. I'm drawn to the challenge of making security and verification feel intuitive rather than overwhelming. Building projects like TruthGuard and encryption tools has taught me that the technical part is only half the work—understanding what people actually need is just as important.",
+    "paragraph3": "Beyond coursework, I actively participate in hackathons, present at exhibitions, and engage with emerging technologies to deepen my understanding. I view learning as an ongoing process, not a checklist, and I'm committed to building my skills with both discipline and curiosity.",
+    "researchInterests": "Research Interests",
+    "interests": {
+      "infoSecurity": "Information Security",
+      "misinformation": "Misinformation Mitigation",
+      "dataPrivacy": "Data Privacy & Protection",
+      "digitalTrust": "Digital Trust Systems",
+      "crypto": "Cryptographic Applications",
+      "verification": "Verification Technologies",
+      "userSecurity": "User-Centered Security",
+      "digitalLiteracy": "Digital Literacy Education"
+    }
+  },
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic journey and the foundation of my technical skills.",
+    "degree": "Intermediate in Computer Science (ICS)",
+    "college": "PAEC College",
+    "duration": "2024 – Present",
+    "description": "Currently pursuing ICS with a focus on computer science fundamentals, programming, and mathematics. Actively building practical skills through web development projects, competitions, and independent learning alongside academics.",
+    "relevantSubjects": "Relevant Subjects",
+    "subjects": {
+      "programming": "Programming Fundamentals",
+      "webDev": "Web Development",
+      "math": "Mathematics",
+      "physics": "Physics",
+      "cs": "Computer Science Concepts"
+    },
+    "learningFocus": "Learning Focus",
+    "learningParagraph1": "I am currently strengthening my skills in web development with a focus on building tools for information security and content verification. My technical learning prioritizes understanding how to create secure, privacy-aware applications that handle sensitive data responsibly.",
+    "learningParagraph2": "Beyond the fundamentals, I'm working to understand cryptographic principles, secure authentication systems, and how to design interfaces that make security accessible rather than intimidating. Each project is both a technical exercise and an exploration of how to build trustworthy digital tools.",
+    "learningParagraph3": "Looking ahead, I'm interested in deepening my understanding of backend security, database protection, and how machine learning can improve misinformation detection. I want to build systems that don't just work well, but that people can actually trust with their information.",
+    "currentlyLearning": "Currently Learning"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technologies and tools I work with to build modern web applications.",
+    "languages": "Languages",
+    "frameworks": "Frameworks & Libraries",
+    "tools": "Tools & Technologies",
+    "proficiency": "Proficiency Levels",
+    "softSkills": "Soft Skills",
+    "softSkillsList": {
+      "problemSolving": "Problem Solving",
+      "selfLearning": "Self-Learning",
+      "attention": "Attention to Detail",
+      "timeManagement": "Time Management",
+      "adaptability": "Adaptability",
+      "criticalThinking": "Critical Thinking",
+      "creativity": "Creativity",
+      "communication": "Communication"
+    }
+  },
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Milestones and accomplishments throughout my academic and professional journey.",
+    "clickToView": "Click to view",
+    "categories": {
+      "academic": "Academic",
+      "competition": "Competition",
+      "recognition": "Recognition",
+      "personal": "Personal Growth"
+    },
+    "items": {
+      "matric": {
+        "title": "Academic Excellence in Matriculation",
+        "description": "Secured 993/1100 marks in Matric, demonstrating strong academic discipline and consistent performance across core subjects."
+      },
+      "hackathon": {
+        "title": "Hackathon 2nd Position",
+        "description": "Achieved 2nd position in a frontend development hackathon by building a functional and visually polished weather application within a limited time frame."
+      },
+      "exhibition": {
+        "title": "College Science Exhibition – 2nd Position",
+        "description": "Secured 2nd position in consecutive years (1st & 2nd Year) for innovative science projects, earning recognition and a college shield for outstanding contribution."
+      },
+      "presentation": {
+        "title": "Project Presentation at Allama Iqbal University",
+        "description": "Represented the college to present technical projects at a university-level event, demonstrating both technical knowledge and presentation skills."
+      },
+      "stem": {
+        "title": "FBISE STEM Exhibition Participant",
+        "description": "Selected to present a student-built website at an FBISE STEM Exhibition, explaining project functionality, technical choices, and implementation to evaluators and visitors."
+      },
+      "scholarshipMatric": {
+        "title": "Scholarship Recipient (Matric)",
+        "description": "Awarded scholarship based on academic merit in Matric."
+      },
+      "scholarshipHSSC": {
+        "title": "Scholarship Recipient (HSSC)",
+        "description": "Awarded scholarship based on academic merit in HSSC."
+      },
+      "selfDriven": {
+        "title": "Self-Driven Technical Learning",
+        "description": "Continuously learn and apply modern web technologies beyond the curriculum through hands-on projects, experimentation, and structured self-study."
+      }
+    },
+    "cta": {
+      "title": "Always Striving for More",
+      "description": "These achievements represent my dedication to continuous learning and growth. I'm always looking for new challenges and opportunities to expand my skills."
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A collection of projects showcasing my skills in web development. Each project represents hands-on learning and problem-solving in different areas of software development.",
+    "coreProjects": "Core Projects",
+    "personalProjects": "Personal & Exploratory Work",
+    "liveDemo": "Live Demo",
+    "viewCode": "View Code",
+    "items": {
+      "truthguard": {
+        "title": "TruthGuard",
+        "description": "Pattern-recognition tool to verify statements and detect misleading content, helping users verify information efficiently. (P.S. Paste a sketchy headline and watch the AI do its thing.)"
+      },
+      "encryption": {
+        "title": "Encryption App",
+        "description": "Secure web application for encrypting and decrypting text and files using AES (Fernet) and Caesar Cipher. Features drag-and-drop file support. (P.S. Encrypt something and see it transform. Decryption is the fun part though.)"
+      },
+      "climacast": {
+        "title": "ClimaCast – Weather App",
+        "description": "Weather forecasting app with current, hourly, and daily forecasts. Built as a hackathon project with interactive UI and responsive design. (P.S. Use the compare feature to check your hometown vs. somewhere you've always wanted to visit.)"
+      },
+      "todolist": {
+        "title": "To-Do List App",
+        "description": "Task management app with add, edit, delete features for organizing daily activities. Features dynamic counters for completed and uncompleted tasks. (P.S. Add a task, check it off. Feel that dopamine hit.)"
+      },
+      "birthday": {
+        "title": "Birthday Gift App",
+        "description": "Interactive app for sending personalized digital birthday greetings. Includes small interactive pages, a sticky audio player, and a handwritten-style letter modal. (P.S. Click the music button to hear what song made the cut.)"
+      },
+      "tribute": {
+        "title": "Tribute Website",
+        "description": "Personal tribute site with interactive elements and responsive layout, demonstrating UI/UX skills and front-end design principles."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "I'm always open to discussing new projects, opportunities, or just connecting with fellow developers. Feel free to reach out!",
+    "contactInfo": "Contact Information",
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "location": "Location",
+    "locationValue": "Islamabad, Pakistan"
+  },
+  "footer": {
+    "copyright": "© 2026 All rights reserved.",
+    "designed": "Designed & developed by me."
+  }
+}

@@ -1,11 +1,14 @@
+import { useTranslation } from 'react-i18next';
 import { ProjectCard } from '../components/ProjectCard';
 
 export function Projects() {
+  const { t } = useTranslation();
+
   // Core Projects
   const coreProjects = [
     {
-      title: 'TruthGuard',
-      description: `Pattern-recognition tool to verify statements and detect misleading content, helping users verify information efficiently. (P.S. Paste a sketchy headline and watch the AI do its thing.)`,
+      title: t('projects.items.truthguard.title'),
+      description: t('projects.items.truthguard.description'),
       techStack: ['Python', 'Flask', 'HTML', 'CSS', 'JavaScript'],
       images: [
         '/projects/truthguard1.PNG',
@@ -17,8 +20,8 @@ export function Projects() {
       badge: '2nd Place',
     },
     {
-      title: 'Encryption App',
-      description: `Secure web application for encrypting and decrypting text and files using AES (Fernet) and Caesar Cipher. Features drag-and-drop file support. (P.S. Encrypt something and see it transform. Decryption is the fun part though.)`,
+      title: t('projects.items.encryption.title'),
+      description: t('projects.items.encryption.description'),
       techStack: ['Python', 'Flask', 'HTML', 'CSS', 'JavaScript'],
       images: [
         '/projects/encryption1.PNG',
@@ -29,8 +32,8 @@ export function Projects() {
       codeUrl: 'https://github.com/omaima112/Encryption-Web-App.git',
     },
     {
-      title: 'ClimaCast – Weather App',
-      description: `Weather forecasting app with current, hourly, and daily forecasts. Built as a hackathon project with interactive UI and responsive design. (P.S. Use the compare feature to check your hometown vs. somewhere you've always wanted to visit.)`,
+      title: t('projects.items.climacast.title'),
+      description: t('projects.items.climacast.description'),
       techStack: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind', 'Vite'],
       images: [
         '/projects/climacast1.PNG',
@@ -42,8 +45,8 @@ export function Projects() {
       badge: '2nd Place',
     },
     {
-      title: 'To-Do List App',
-      description: `Task management app with add, edit, delete features for organizing daily activities. Features dynamic counters for completed and uncompleted tasks. (P.S. Add a task, check it off. Feel that dopamine hit.)`,
+      title: t('projects.items.todolist.title'),
+      description: t('projects.items.todolist.description'),
       techStack: ['HTML', 'CSS', 'JavaScript'],
       images: [
         '/projects/todolist1.PNG',
@@ -57,8 +60,8 @@ export function Projects() {
   // Personal & Exploratory Work
   const personalProjects = [
     {
-      title: 'Birthday Gift App',
-      description: `Interactive app for sending personalized digital birthday greetings. Includes small interactive pages, a sticky audio player, and a handwritten-style letter modal. (P.S. Click the music button to hear what song made the cut. 🎵)`,
+      title: t('projects.items.birthday.title'),
+      description: t('projects.items.birthday.description'),
       techStack: ['React', 'Vite', 'CSS'],
       images: [
         '/projects/birthday1.PNG',
@@ -69,8 +72,8 @@ export function Projects() {
       codeUrl: 'https://github.com/omaima112/BirthdayGift.git',
     },
     {
-      title: 'Tribute Website',
-      description: 'Personal tribute site with interactive elements and responsive layout, demonstrating UI/UX skills and front-end design principles.',
+      title: t('projects.items.tribute.title'),
+      description: t('projects.items.tribute.description'),
       techStack: ['HTML', 'CSS', 'JavaScript'],
       images: [
         '/projects/tribute1.PNG',
@@ -84,15 +87,14 @@ export function Projects() {
   return (
     <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl mb-4 text-accent">Projects</h1>
+        <h1 className="text-4xl md:text-5xl mb-4 text-accent">{t('projects.title')}</h1>
         <p className="text-lg text-foreground/90 max-w-3xl">
-          A collection of projects showcasing my skills in web development. Each project 
-          represents hands-on learning and problem-solving in different areas of software development.
+          {t('projects.subtitle')}
         </p>
       </div>
 
       {/* Core Projects Section */}
-      <h1 className="text-3xl font-bold mb-10 mt-10 text-accent text-center">Core Projects</h1>
+      <h1 className="text-3xl font-bold mb-10 mt-10 text-accent text-center">{t('projects.coreProjects')}</h1>
       <div className="grid md:grid-cols-2 gap-8 mb-12">
         {coreProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />
@@ -100,7 +102,7 @@ export function Projects() {
       </div>
 
       {/* Personal & Exploratory Work Section */}
-      <h1 className="text-3xl font-bold mb-10 mt-10 text-accent/80 text-center">Personal & Exploratory Work</h1>
+      <h1 className="text-3xl font-bold mb-10 mt-10 text-accent/80 text-center">{t('projects.personalProjects')}</h1>
       <div className="grid md:grid-cols-2 gap-8">
         {personalProjects.map((project, index) => (
           <ProjectCard key={index} {...project} />

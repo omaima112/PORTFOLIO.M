@@ -1,76 +1,84 @@
-
-import { useState, useRef } from 'react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Award, Trophy, Medal, Star, GraduationCap, Lightbulb, Shield, Presentation, X } from 'lucide-react';
 
 export default function Achievements() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useTranslation();
 
   // Each achievement can now have multiple images for the slideshow
   const achievements = [
     {
-      title: 'Academic Excellence in Matriculation',
-      description: 'Secured 993/1100 marks in Matric, demonstrating strong academic discipline and consistent performance across core subjects.',
+      title: t('achievements.items.matric.title'),
+      description: t('achievements.items.matric.description'),
       icon: GraduationCap,
-      category: 'Academic',
+      category: t('achievements.categories.academic'),
       year: '2023',
       images: ['/achievements/5.png'],
     },
     {
-      title: 'Hackathon 2nd Position',
-      description: 'Achieved 2nd position in a frontend development hackathon by building a functional and visually polished weather application within a limited time frame.',
+      title: t('achievements.items.hackathon.title'),
+      description: t('achievements.items.hackathon.description'),
       icon: Trophy,
-      category: 'Competition',
+      category: t('achievements.categories.competition'),
       year: 'September 2024',
       images: ['/achievements/3.png'],
     },
     {
-      title: 'College Science Exhibition – 2nd Position',
-      description: 'Secured 2nd position in consecutive years (1st & 2nd Year) for innovative science projects, earning recognition and a college shield for outstanding contribution.',
+      title: t('achievements.items.exhibition.title'),
+      description: t('achievements.items.exhibition.description'),
       icon: Shield,
-      category: 'Competition',
+      category: t('achievements.categories.competition'),
       year: '2024-2025',
       images: ['/achievements/2.png'],
     },
     {
-      title: 'Project Presentation at Allama Iqbal University',
-      description: 'Represented the college to present technical projects at a university-level event, demonstrating both technical knowledge and presentation skills.',
+      title: t('achievements.items.presentation.title'),
+      description: t('achievements.items.presentation.description'),
       icon: Presentation,
-      category: 'Recognition',
+      category: t('achievements.categories.recognition'),
       year: '2024',
       images: ['/achievements/1.png'],
     },
     {
-      title: 'FBISE STEM Exhibition Participant',
-      description: 'Selected to present a student-built website at an FBISE STEM Exhibition, explaining project functionality, technical choices, and implementation to evaluators and visitors.',
+      title: t('achievements.items.stem.title'),
+      description: t('achievements.items.stem.description'),
       icon: Star,
-      category: 'Recognition',
+      category: t('achievements.categories.recognition'),
       year: '2024 & 2025',
       images: ['/achievements/4.png'],
     },
     {
-      title: 'Scholarship Recipient (Matric)',
-      description: 'Awarded scholarship based on academic merit in Matric.',
+      title: t('achievements.items.scholarshipMatric.title'),
+      description: t('achievements.items.scholarshipMatric.description'),
       icon: Medal,
-      category: 'Academic',
+      category: t('achievements.categories.academic'),
       year: '2023',
       images: [],
     },
     {
-      title: 'Scholarship Recipient (HSSC)',
-      description: 'Awarded scholarship based on academic merit in HSSC.',
+      title: t('achievements.items.scholarshipHSSC.title'),
+      description: t('achievements.items.scholarshipHSSC.description'),
       icon: Medal,
-      category: 'Academic',
+      category: t('achievements.categories.academic'),
       year: '2024 - Present',
       images: [],
     },
     {
-      title: 'Self-Driven Technical Learning',
-      description: 'Continuously learn and apply modern web technologies beyond the curriculum through hands-on projects, experimentation, and structured self-study.',
+      title: t('achievements.items.selfDriven.title'),
+      description: t('achievements.items.selfDriven.description'),
       icon: Lightbulb,
-      category: 'Personal Growth',
+      category: t('achievements.categories.personal'),
       year: '',
       images: [],
     },
+  ];
+
+  // Special card titles for different styling
+  const specialCardTitles = [
+    t('achievements.items.scholarshipMatric.title'),
+    t('achievements.items.scholarshipHSSC.title'),
+    t('achievements.items.selfDriven.title'),
   ];
 
   return (
@@ -86,7 +94,7 @@ export default function Achievements() {
             onClick={e => e.stopPropagation()}
           >
             <button
-              className="absolute top-2 right-2 bg-black/60 rounded-full p-2 text-white hover:bg-black/80 focus:outline-none"
+              className="absolute top-2 end-2 bg-black/60 rounded-full p-2 text-white hover:bg-black/80 focus:outline-none"
               onClick={() => setSelectedImage(null)}
               aria-label="Close image modal"
             >
@@ -104,10 +112,10 @@ export default function Achievements() {
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-4">
           <Award className="text-secondary" size={40} />
-          <h1 className="text-4xl md:text-5xl text-accent">Achievements</h1>
+          <h1 className="text-4xl md:text-5xl text-accent">{t('achievements.title')}</h1>
         </div>
         <p className="text-lg text-foreground/80 max-w-3xl">
-          Milestones and accomplishments throughout my academic and professional journey.
+          {t('achievements.subtitle')}
         </p>
       </div>
 
@@ -115,25 +123,25 @@ export default function Achievements() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {achievements.map((achievement, index) => {
           const Icon = achievement.icon;
-          const cardRef = useRef<HTMLDivElement>(null);
+          const isSpecialCard = specialCardTitles.includes(achievement.title);
+          
           return (
             <div
               key={index}
-              ref={cardRef}
               className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-secondary transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20 animate-fadeInUp relative"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               {/* Year Badge (always shown if year exists) */}
               {achievement.year && (
                 <span
-                  className="absolute top-3 left-3 px-4 py-1 text-sm font-bold rounded shadow border border-white"
+                  className="absolute top-3 start-3 px-4 py-1 text-sm font-bold rounded shadow border border-white"
                   style={{ backgroundColor: '#facb3f', color: '#210635', zIndex: 10, letterSpacing: '0.03em' }}
                 >
                   {achievement.year}
                 </span>
               )}
               {/* Scholarship & Self-Driven: Special Card Style */}
-              {(achievement.title === 'Scholarship Recipient (Matric)' || achievement.title === 'Scholarship Recipient (HSSC)' || achievement.title === 'Self-Driven Technical Learning') ? (
+              {isSpecialCard ? (
                 <div className="flex flex-col items-center justify-center bg-primary/10 rounded-2xl p-8 h-full text-center min-h-[260px]">
                   <div className="mb-4 flex items-center justify-center w-12 h-12 rounded-full bg-primary/20">
                     <Icon size={28} className="text-primary/60" />
@@ -163,7 +171,7 @@ export default function Achievements() {
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 hover:bg-black/20 focus:bg-black/20 transition-colors flex items-center justify-center">
                         <span className="text-white opacity-0 group-hover:opacity-100 hover:opacity-100 focus:opacity-100 transition-opacity text-sm">
-                          Click to view
+                          {t('achievements.clickToView')}
                         </span>
                       </div>
                     </button>
@@ -193,11 +201,10 @@ export default function Achievements() {
       <div className="mt-16 text-center">
         <div className="bg-card rounded-3xl p-8 md:p-12 border border-border">
           <h2 className="text-2xl md:text-3xl text-accent mb-4">
-            Always Striving for More
+            {t('achievements.cta.title')}
           </h2>
           <p className="text-lg text-foreground/80 max-w-2xl mx-auto">
-            These achievements represent my dedication to continuous learning and growth. 
-            I'm always looking for new challenges and opportunities to expand my skills.
+            {t('achievements.cta.description')}
           </p>
         </div>
       </div>

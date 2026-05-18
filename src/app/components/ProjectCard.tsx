@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github, ChevronLeft, ChevronRight, Image } from 'lucide-react';
 
 interface ProjectCardProps {
@@ -20,10 +21,12 @@ export function ProjectCard({
   codeUrl,
   badge,
 }: ProjectCardProps) {
+  const { t } = useTranslation();
+
   // Extract P.S. note if present in description
   let mainDescription = description;
   let psNote = '';
-  const psMatch = description.match(/\(P\.S\..*\)$/);
+  const psMatch = description.match(/\(P\.S\..*\)$|\(ملاحظة:.*\)$/);
   if (psMatch) {
     mainDescription = description.replace(psMatch[0], '').trim();
     psNote = psMatch[0].replace(/^\(|\)$/g, '');
@@ -53,11 +56,11 @@ export function ProjectCard({
         <div className="relative aspect-video bg-primary/50 overflow-hidden group">
           {badge && (
             <>
-              <span className="absolute top-3 right-3 z-10 px-3 py-1 bg-accent text-white text-xs rounded-full shadow-lg font-semibold animate-fadeInUp">
+              <span className="absolute top-3 end-3 z-10 px-3 py-1 bg-accent text-white text-xs rounded-full shadow-lg font-semibold animate-fadeInUp">
                 {badge}
               </span>
               <span
-                className="absolute top-3 right-3 z-10 px-5 py-2 text-base font-bold rounded-md shadow-sm animate-fadeInUp border border-white"
+                className="absolute top-3 end-3 z-10 px-5 py-2 text-base font-bold rounded-md shadow-sm animate-fadeInUp border border-white"
                 style={{ backgroundColor: '#facb3f', color: '#210635' }}
               >
                 {badge}
@@ -83,14 +86,14 @@ export function ProjectCard({
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-background/80 hover:bg-background rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute start-2 top-1/2 -translate-y-1/2 p-2 bg-background/80 hover:bg-background rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 aria-label="Previous image"
               >
                 <ChevronLeft size={20} className="text-foreground" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-background/80 hover:bg-background rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute end-2 top-1/2 -translate-y-1/2 p-2 bg-background/80 hover:bg-background rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 aria-label="Next image"
               >
                 <ChevronRight size={20} className="text-foreground" />
@@ -118,7 +121,7 @@ export function ProjectCard({
 
           {/* Image Counter */}
           {hasMultipleImages && (
-            <div className="absolute top-3 right-3 px-2 py-1 bg-background/80 rounded-full text-xs text-foreground">
+            <div className="absolute top-3 end-3 px-2 py-1 bg-background/80 rounded-full text-xs text-foreground">
               {currentImageIndex + 1} / {images.length}
             </div>
           )}
@@ -151,7 +154,7 @@ export function ProjectCard({
               className="flex items-center gap-2 px-4 py-2 bg-secondary hover:bg-secondary/80 text-foreground rounded-lg transition-colors"
             >
               <ExternalLink size={16} />
-              <span>Live Demo</span>
+              <span>{t('projects.liveDemo')}</span>
             </a>
           )}
           {codeUrl && (
@@ -162,7 +165,7 @@ export function ProjectCard({
               className="flex items-center gap-2 px-4 py-2 bg-primary hover:bg-primary/80 text-foreground border border-border rounded-lg transition-colors"
             >
               <Github size={16} />
-              <span>Code</span>
+              <span>{t('projects.viewCode')}</span>
             </a>
           )}
         </div>
