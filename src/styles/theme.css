@@ -1,0 +1,134 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Moon Theme Colors */
+  --background: #210635;
+  --primary: #420D4B;
+  --secondary: #7B337E;
+  --muted: #6667AB;
+  --accent: #F5D5E0;
+  --foreground: #F5D5E0;
+  
+  /* Font families */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-heading-ar: 'Noto Serif Arabic', serif;
+  --font-body-ar: 'Noto Sans Arabic', sans-serif;
+  
+  /* Other defaults */
+  --card: #420D4B;
+  --card-foreground: #F5D5E0;
+  --popover: #420D4B;
+  --popover-foreground: #F5D5E0;
+  --primary-foreground: #F5D5E0;
+  --secondary-foreground: #F5D5E0;
+  --muted-foreground: #F5D5E0;
+  --accent-foreground: #210635;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(123, 51, 126, 0.3);
+  --input: transparent;
+  --input-background: rgba(66, 13, 75, 0.5);
+  --switch-background: #7B337E;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #7B337E;
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  /* Arabic font support for RTL */
+  html[dir="rtl"] body {
+    font-family: var(--font-body-ar);
+  }
+
+  html[dir="rtl"] h1, 
+  html[dir="rtl"] h2, 
+  html[dir="rtl"] h3, 
+  html[dir="rtl"] h4, 
+  html[dir="rtl"] h5, 
+  html[dir="rtl"] h6 {
+    font-family: var(--font-heading-ar);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  h1 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  label {
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  button {
+    font-family: var(--font-body);
+    font-weight: var(--font-weight-medium);
+    line-height: 1.5;
+  }
+
+  input {
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+  }
+}
