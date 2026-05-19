@@ -1,21 +1,24 @@
-import { Code2, Wrench, Layout, Database } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Code2, Wrench, Layout } from 'lucide-react';
 import { SkillTag } from '../components/SkillTag';
 import React from 'react';
 
 export function Skills() {
+  const { t } = useTranslation();
+
   const skillCategories = [
     {
-      title: 'Languages',
+      title: t('skills.languages'),
       icon: Code2,
       skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
     },
     {
-      title: 'Frameworks & Libraries',
+      title: t('skills.frameworks'),
       icon: Layout,
       skills: ['React', 'Next.js', 'Flask'],
     },
     {
-      title: 'Tools & Technologies',
+      title: t('skills.tools'),
       icon: Wrench,
       skills: ['Git & GitHub', 'Vercel', 'PythonAnywhere', 'Responsive Design', 'UI/UX Fundamentals'],
     },
@@ -29,6 +32,17 @@ export function Skills() {
     { skill: 'React', level: 70 },
     { skill: 'Next.js', level: 65 },
     { skill: 'Git & GitHub', level: 75 },
+  ];
+
+  const softSkills = [
+    t('skills.softSkillsList.problemSolving'),
+    t('skills.softSkillsList.selfLearning'),
+    t('skills.softSkillsList.attention'),
+    t('skills.softSkillsList.timeManagement'),
+    t('skills.softSkillsList.adaptability'),
+    t('skills.softSkillsList.criticalThinking'),
+    t('skills.softSkillsList.creativity'),
+    t('skills.softSkillsList.communication'),
   ];
 
   // Animated approach effect for proficiency bars
@@ -50,10 +64,10 @@ export function Skills() {
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-4">
           <Code2 className="text-secondary" size={40} />
-          <h1 className="text-4xl md:text-5xl text-accent">Skills</h1>
+          <h1 className="text-4xl md:text-5xl text-accent">{t('skills.title')}</h1>
         </div>
         <p className="text-lg text-foreground/80 max-w-3xl">
-          Technologies and tools I work with to build modern web applications.
+          {t('skills.subtitle')}
         </p>
       </div>
 
@@ -83,7 +97,7 @@ export function Skills() {
 
       {/* Proficiency Levels */}
       <section>
-        <h2 className="text-3xl md:text-4xl mb-8 text-accent">Proficiency Levels</h2>
+        <h2 className="text-3xl md:text-4xl mb-8 text-accent">{t('skills.proficiency')}</h2>
         <div className="bg-card rounded-3xl p-8 border border-border">
           <div className="space-y-6">
             {proficiencyLevels.map((item, index) => (
@@ -106,9 +120,9 @@ export function Skills() {
 
       {/* Soft Skills */}
       <section className="mt-16">
-        <h2 className="text-3xl md:text-4xl mb-8 text-accent">Soft Skills</h2>
+        <h2 className="text-3xl md:text-4xl mb-8 text-accent">{t('skills.softSkills')}</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {['Problem Solving', 'Self-Learning', 'Attention to Detail', 'Time Management', 'Adaptability', 'Critical Thinking', 'Creativity', 'Communication'].map((skill, index) => (
+          {softSkills.map((skill, index) => (
             <div
               key={index}
               className="bg-card rounded-2xl p-5 border border-border text-center hover:border-secondary transition-colors"

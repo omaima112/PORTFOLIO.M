@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { ArrowRight, Code2, Sparkles, User } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
 
 export default function Home() {
+  const { t } = useTranslation();
   const profilePicture = '/pfp.jpeg';
 
   return (
@@ -12,29 +14,29 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16 animate-fadeInUp" style={{animationDelay: '120ms'}}>
             {/* Text Content */}
-            <div className="flex-1 text-center md:text-left space-y-10">
+            <div className="flex-1 text-center md:text-start space-y-10">
               <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
                 <Code2 className="text-accent" size={32} />
                 <Sparkles className="text-secondary" size={24} />
               </div>
               
               <h1 className="text-5xl sm:text-6xl md:text-7xl text-accent mb-7">
-                Hi, I'm <span className="text-secondary">Omaimah</span>
+                {t('home.greeting')} <span className="text-secondary">{t('home.name')}</span>
               </h1>
 
-              <h1 className="text-2xl md:text-3xl text-foreground/90 mb-6 text-center md:text-left">
-                Computer Science student building tools for information security and digital trust
+              <h1 className="text-2xl md:text-3xl text-foreground/90 mb-6 text-center md:text-start">
+                {t('home.tagline')}
               </h1>
               
-              <p className="text-lg text-foreground/80 max-w-2xl text-center md:text-left">
-                My work is driven by the belief that technology should make the internet safer and more reliable for everyone.
+              <p className="text-lg text-foreground/80 max-w-2xl text-center md:text-start">
+                {t('home.description')}
               </p>
 
               {/* Tilted Ada Lovelace Quote (text only, no box) */}
               <p className="italic text-lg text-secondary mt-10 mb-4">
-                "Imagination is the Discovering Faculty, pre-eminently. It is that which penetrates into the unseen worlds around us, the worlds of Science."
+                {t('home.quote')}
                 <br />
-                <span className="not-italic font-semibold text-accent">- Ada Lovelace</span>
+                <span className="not-italic font-semibold text-accent">{t('home.quoteAuthor')}</span>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
@@ -42,14 +44,14 @@ export default function Home() {
                   to="/projects"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-secondary hover:bg-secondary/80 text-foreground rounded-xl transition-all hover:scale-105"
                 >
-                  View Projects
+                  {t('home.viewProjects')}
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/80 text-foreground border border-border rounded-xl transition-all hover:scale-105"
                 >
-                  Get in Touch
+                  {t('home.getInTouch')}
                 </Link>
               </div>
             </div>
@@ -65,7 +67,7 @@ export default function Home() {
                 </AvatarFallback>
               </Avatar>
               {/* Floating decoration */}
-              <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-secondary rounded-full flex items-center justify-center shadow-lg">
+              <div className="absolute -bottom-2 -end-2 w-12 h-12 bg-secondary rounded-full flex items-center justify-center shadow-lg">
                 <Sparkles size={24} className="text-background" />
               </div>
             </div>
